@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    
 }
 
 .box {
@@ -18,5 +17,8 @@
     border-style: solid;
     margin: -1px;
     background-color: aqua;
-    
+}
+
+.painted {
+    background-color: darkcyan;
 }

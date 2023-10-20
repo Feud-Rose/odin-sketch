@@ -1,3 +1,5 @@
+
+//Fill box with boxes
 const boxSideCount = 16
 const boxCount = boxSideCount * boxSideCount
 console.log(boxCount)
@@ -12,5 +14,11 @@ for ( let i = 0; i < boxCount; i++) {
     box.style.minWidth = widHigh + 'px';
     box.style.minHeight = widHigh + 'px';
     container.appendChild(box)
-
 }
+
+//Hover to paint
+
+onmouseover = (e) => {
+    if (e.target.classList == 'box') {
+    e.target.classList.add('painted')}
+};
