@@ -10,7 +10,8 @@ resetButton.onclick = function(){
     }
     let userChoice = prompt ('How many squares per side (<=100) would you like?')
         if (userChoice > 100) {
-            let userChoice = prompt('Please enter a number of 100 or less')
+            userChoice = 0
+            alert("Please try again with a number less than 100.")
         }
     let boxSideCount = userChoice
     let boxCount = boxSideCount * boxSideCount
