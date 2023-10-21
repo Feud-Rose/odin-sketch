@@ -32,5 +32,16 @@ resetButton.onclick = function(){
 
 onmouseover = (e) => {
     if (e.target.classList == 'box') {
-    e.target.classList.add('painted')}
-};
+        if (e.target.classList == 'painted') {
+                //"darken" the color becoming black in 10 pass overs ??????
+        }
+        else {
+            e.target.classList.add('painted');
+            let red = Math.floor(Math.random()*256)
+            let green = Math.floor(Math.random()*256)
+            let blue = Math.floor(Math.random()*256)
+            
+            e.target.style.backgroundColor = 'rgb('+ red + ', ' + blue + ', ' + green + ')'
+        }
+}
+}

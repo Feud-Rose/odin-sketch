@@ -49,9 +49,9 @@ button {
     border: 1px;
     border-style: solid;
     margin: -1px;
-    background-color: aqua;
+    background-color: rgb(256, 256, 256);
 }
 
-.painted {
-    background-color: darkcyan;
-}
+/* .painted {
+    background-color: rgb(0, 0, 0);
+} */
