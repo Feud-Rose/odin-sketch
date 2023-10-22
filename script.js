@@ -40,9 +40,9 @@ addEventListener("mouseover", (e) => {
         targetDiv.classList.add('bright')
         if (isItBright) {
             let bright = getComputedStyle(targetDiv).getPropertyValue('filter')
-            console.log(bright)
+            //console.log(bright)
             let newBrightness = lowerBrightness(bright)
-            console.log(newBrightness)
+            //console.log(newBrightness)
             e.target.style.filter = 'brightness(' + newBrightness + ')'
         }
         else {
@@ -60,16 +60,15 @@ addEventListener("mouseover", (e) => {
 
 function lowerBrightness(val) {
     let brightArray = val.split("")
-    console.log(brightArray)
-
+    //console.log(brightArray)
     for ( i = 0; i < 11; i++) {
         brightArray.shift()
     }
-    console.log(brightArray)
+    //console.log(brightArray)
     let popped = brightArray.pop()
-    console.log(brightArray);
+    //console.log(brightArray);
     let brightInt = brightArray.join("")
-    console.log(brightInt)
+    //console.log(brightInt)
     if (brightInt >= 0.1) {
         brightInt -= 0.1;
         console.log(brightInt)
