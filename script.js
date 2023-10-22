@@ -1,6 +1,6 @@
 const container = document.querySelector('.container')
-console.log(container)
 let userChoice = 0
+
 
 
 const resetButton = document.querySelector('button')
@@ -30,18 +30,54 @@ resetButton.onclick = function(){
             
 }
 
-onmouseover = (e) => {
-    if (e.target.classList == 'box') {
-        if (e.target.classList == 'painted') {
-                //"darken" the color becoming black in 10 pass overs ??????
+
+addEventListener("mouseover", (e) => {
+    let targetDiv = e.target
+    let targetClass = e.target.classList.contains('box')
+    if (targetClass) {
+        let isItBright = e.target.classList.contains('bright')
+        
+        targetDiv.classList.add('bright')
+        if (isItBright) {
+            let bright = getComputedStyle(targetDiv).getPropertyValue('filter')
+            console.log(bright)
+            let newBrightness = lowerBrightness(bright)
+            console.log(newBrightness)
+            e.target.style.filter = 'brightness(' + newBrightness + ')'
         }
         else {
-            e.target.classList.add('painted');
-            let red = Math.floor(Math.random()*256)
-            let green = Math.floor(Math.random()*256)
-            let blue = Math.floor(Math.random()*256)
+            let hue= Math.floor(Math.random()*300)
+            let sat = Math.floor(Math.random()*100)
+            let light = Math.floor(Math.random()*100)
             
-            e.target.style.backgroundColor = 'rgb('+ red + ', ' + blue + ', ' + green + ')'
+            targetDiv.style.backgroundColor = 'hsl('+ hue + ', ' + sat + '%, ' + light + '%)'
+            targetDiv.style.filter = 'brightness(100%)'
         }
+
 }
+})
+
+
+function lowerBrightness(val) {
+    let brightArray = val.split("")
+    console.log(brightArray)
+
+    for ( i = 0; i < 11; i++) {
+        brightArray.shift()
+    }
+    console.log(brightArray)
+    let popped = brightArray.pop()
+    console.log(brightArray);
+    let brightInt = brightArray.join("")
+    console.log(brightInt)
+    if (brightInt >= 0.1) {
+        brightInt -= 0.1;
+        console.log(brightInt)
+        return brightInt
+    }
+    else if (brightInt > 0 && brightInt < 0.1) {
+        brightInt -= brightInt;
+        console.log(brightInt)
+        return brightInt
+    }
 }
